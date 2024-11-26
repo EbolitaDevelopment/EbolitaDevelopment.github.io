@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - Veterinaria Patitas Felices</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #a87b05;
+            padding: 1rem;
+            color: #023e7d;
+            text-align: center;
+        }
+        body{
+            background-color: #023e7d;
+            color: #fff;
+            text-align: center;
+        }
+        nav {
+            background-color: #a87b05;
+            padding: 1rem;
+            color:#023e7d
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .service-detail {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #0077b6;
+            text-align: left;
+        }
+
+        .service-detail h3 {
+            color: #a87b05;
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .service-detail ul {
+            list-style-position: inside;
+            margin-left: 1rem;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #0077b6;
+            margin-top: 2rem;
+        }
+
+        .price-table th, .price-table td {
+            border: 1px solid #a87b05;
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        .price-table th {
+            background-color: #a87b05;
+            color: white;
+        }
+
+        .price-table tr:nth-child(even) {
+            background-color: #0077b6;
+        }
+
+        footer {
+            background-color: skyblue;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .price-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Veterinaria Patitas Felices</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main class="services-container">
+        <h2>Nuestros Servicios Detallados</h2>
+        <br>
+        <div class="service-detail">
+            <h3>Consulta General</h3>
+            <p>Evaluación completa del estado de salud de tu mascota, incluyendo:</p>
+            <ul>
+                <li>Examen físico completo</li>
+                <li>Control de peso</li>
+                <li>Revisión de vacunas</li>
+                <li>Recomendaciones de cuidado</li>
+            </ul>
+        </div>
+
+        <div class="service-detail">
+            <h3>Vacunación</h3>
+            <p>Programa completo de vacunación para:</p>
+            <ul>
+                <li>Cachoros y gatitos</li>
+                <li>Refuerzos anuales</li>
+                <li>Vacunas especiales según necesidad</li>
+            </ul>
+        </div>
+
+        <div class="service-detail">
+            <h3>Cirugías</h3>
+            <p>Procedimientos quirúrgicos incluyendo:</p>
+            <ul>
+                <li>Esterilización</li>
+                <li>Cirugías de emergencia</li>
+                <li>Cirugías programadas</li>
+                <li>Cirugías dentales</li>
+            </ul>
+        </div>
+
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>Servicio</th>
+                    <th>Precio desde</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Consulta General</td>
+                    <td>$30</td>
+                </tr>
+                <tr>
+                    <td>Vacunación Básica</td>
+                    <td>$25</td>
+                </tr>
+                <tr>
+                    <td>Esterilización Gatos</td>
+                    <td>$80</td>
+                </tr>
+                <tr>
+                    <td>Esterilización Perros</td>
+                    <td>$100</td>
+                </tr>
+                <tr>
+                    <td>Limpieza Dental</td>
+                    <td>$50</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>© 2024 Veterinaria Patitas Felices. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animación para los detalles de servicios
+            const serviceDetails = document.querySelectorAll('.service-detail');
+            serviceDetails.forEach(detail => {
+                detail.addEventListener('mouseenter', () => {
+                    detail.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+                    detail.style.transition = 'box-shadow 0.3s ease';
+                });
+                detail.addEventListener('mouseleave', () => {
+                    detail.style.boxShadow = 'none';
+                });
+            });
+
+            // Resaltar filas de la tabla al pasar el mouse
+            const tableRows = document.querySelectorAll('.price-table tbody tr');
+            tableRows.forEach(row => {
+                row.addEventListener('mouseenter', () => {
+                    row.style.backgroundColor = '#a87b05';
+                });
+                row.addEventListener('mouseleave', () => {
+                    row.style.backgroundColor = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

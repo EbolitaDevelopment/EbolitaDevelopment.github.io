@@ -1,0 +1,64 @@
+body{
+    background-color: green;
+}
+p{
+    font-size: 25px;
+    color: yellow;
+    text-align: justify;
+}
+h1{
+    font-size: 45px;
+    color: yellow;
+    text-align: center;
+}
+h2{
+    font-size: 40px;
+    color: yellow;
+    text-align: center;
+}
+h3{
+    font-size: 60px;
+    color: green;
+    text-align: center;
+}
+a{
+    font-size: 60px;
+    color: yellow;
+    text-align: center;
+}
+.titulo{
+    width: 100%;
+    background-color: yellow;
+}
+
+table {
+    width: 60%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+th, td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+}
+th {
+    background-color: yellow;
+    font-size: 60px;
+    color: green;
+    text-align: center;
+}
+td{
+    background-color: yellow;
+    color: green;
+    font-size: 25px;
+    text-align: justify;
+}
+
+li{
+    font-size: 25px;
+    color: yellow;
+    text-align: justify;
+}
+hr{
+    color: yellow;
+}

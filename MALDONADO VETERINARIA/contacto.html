@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Veterinaria Patitas Felices</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #a87b05;
+            padding: 1rem;
+            color: #023e7d;
+            text-align: center;
+        }
+        body{
+            background-color: #023e7d;
+            color: #fff;
+            text-align: center;
+        }
+        nav {
+            background-color: #a87b05;
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info h3 {
+            color: #a87b05;
+            margin-bottom: 1rem;
+        }
+
+        .contact-form {
+            background-color: #0077b6;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid skyblue;
+            background-color: skyblue;
+            color: black;
+            border-radius: 4px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #a87b05;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: skyblue;
+        }
+
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            padding: 1rem;
+            background-color: #a87b05;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: skyblue;
+            color: #0077b6 ;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #a87b05;
+            color: #3c763d;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Veterinaria Patitas Felices</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <main class="contact-container">
+        <h2>Contacto</h2><br>
+        
+        <div class="contact-grid">
+            <div class="contact-item">
+                <h3>Teléfono</h3>
+                <p>5526720088</p>
+            </div>
+            <div class="contact-item">
+                <h3>Email</h3>
+                <p>infopfeliz@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <h3>Dirección</h3>
+                <p>Mar Mediterráneo # 227</p>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h3>Envíanos un mensaje</h3><br>
+            <div class="success-message" id="successMessage">
+                ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.
+            </div>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono:</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </div>
+
+        <div class="map-container">
+            <center><img src="mapa.jpg" alt="Mapa de ubicación" style="width: 30%; object-fit: cover;"></center>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Veterinaria Patitas Felices. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Simulamos el envío del formulario
+                const formData = new FormData(contactForm);
+                const formObject = {};
+                formData.forEach((value, key) => {
+                    formObject[key] = value;
+                });
+
+                // Mostramos el mensaje de éxito
+                successMessage.style.display = 'block';
+                contactForm.reset();
+
+                // Ocultamos el mensaje después de 5 segundos
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            });
+
+            // Animación para los items de contacto
+            const contactItems = document.querySelectorAll('.contact-item');
+            contactItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    item.style.transform = 'translateY(-5px)';
+                    item.style.transition = 'transform 0.3s ease';
+                });
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
